@@ -13,10 +13,21 @@ shift = int(input("Type the shift number:\n"))
 
 
 def decrypt(original_text, shift_amount):
-    cipher_text = ""
+    output_text = ""
     for letter in original_text:
         shifted_position = alphabet.index(letter) - shift_amount
         shifted_position %= len(alphabet)
-        cipher_text += alphabet[shifted_position]
-    print(f"Here is the decoded result: {cipher_text}")
-decrypt("harsh", 1)
+        output_text += alphabet[shifted_position]
+    print(f"Here is the decoded result: {output_text}")
+
+
+def caesar_cipher(original_text, shift_amount,encode_or_decode):
+    output_text = ""
+    for letter in original_text:
+        if encode_or_decode == "decode":
+            shift_amount*=1
+        shifted_position = alphabet.index(letter) - shift_amount
+        shifted_position %= len(alphabet)
+        output_text += alphabet[shifted_position]
+    print(f"Here is the {encode_or_decode} result: {output_text}")
+caesar_cipher(text,shift,direction)
